@@ -6,12 +6,6 @@ CSS-only loader: a friendly light-brown Labrador walking.
 
 Open `index.html` in your browser.
 
-## How to submit to uiverse.io
-
-1. Go to https://uiverse.io/ and sign in.
-2. Click Create (+) and choose a component type (Loader / Animated Icon).
-3. In the HTML field, paste only the inner loader markup:
-
 ```html
 <div class="loader">
   <div class="dog" role="img" aria-label="Walking labrador">
@@ -37,9 +31,7 @@ Open `index.html` in your browser.
 </div>
 ```
 
-4. In the CSS field, paste everything from `style.css`. Uiverse uses its own preview container, so page-level styles won’t leak.
-5. Add a Title (e.g., "Labrador walking loader"), Description, and Tags (loader, dog, labrador, css, animation).
-6. Submit. Optionally add a cover screenshot.
+
 
 ## Customization
 
