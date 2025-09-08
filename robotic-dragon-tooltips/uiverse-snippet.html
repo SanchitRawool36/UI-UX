@@ -1,0 +1,63 @@
+<!doctype html>
+<!-- Mech-Drake Tooltips — single-file snippet for uiverse (paste into HTML panel) -->
+<div class="mech-drake">
+  <style>
+    .mech-drake{--bg:#07121a;--btn:#0f1720;--fg:#dbeeff;--muted:rgba(255,255,255,.06);--accent1:#ff6b35;--accent2:#03aab0;--accent3:#7afcff}
+    .mech-drake{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);padding:28px;border-radius:12px;color:var(--fg);display:inline-block}
+  .mech-drake .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .mech-drake .md-title{margin:0 0 12px;font-size:18px;color:var(--fg);font-weight:600;text-align:center}
+    .mech-drake .btn{position:relative;appearance:none;border:0;background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);color:var(--fg);padding:10px 14px;border-radius:10px;font-size:14px;cursor:pointer}
+    .mech-drake .btn:focus{outline:2px solid rgba(255,255,255,.06);outline-offset:4px}
+
+    /* base tooltip */
+    .mech-drake .tooltip{position:relative}
+    .mech-drake .tooltip::after{content:attr(data-tip);position:absolute;left:50%;transform:translateX(-50%) translateY(8px);white-space:nowrap;padding:8px 12px;border-radius:8px;font-size:13px;background:#0b1220;color:var(--fg);opacity:0;pointer-events:none;transition:all .22s cubic-bezier(.2,.9,.2,1)}
+    .mech-drake .tooltip:hover::after,.mech-drake .tooltip:focus::after,.mech-drake .tooltip:active::after{opacity:1;transform:translateX(-50%) translateY(18px)}
+
+    /* Mech theme */
+    .mech-drake .tooltip.mech::after{background:linear-gradient(90deg,#2b0a00,#ff6b35);color:#120500;box-shadow:0 6px 18px rgba(255,100,50,.08);padding:10px 14px;border-radius:6px}
+    .mech-drake .tooltip.mech::before{content:'';position:absolute;left:50%;top:-8px;transform:translateX(-50%);width:10px;height:10px;background:radial-gradient(circle,#ff9a6b 0%,#ff6b35 50%,transparent 60%);border-radius:50%;opacity:0;transition:all .22s}
+    .mech-drake .tooltip.mech:hover::before,.mech-drake .tooltip.mech:focus::before,.mech-drake .tooltip.mech:active::before{top:-18px;opacity:1}
+    .mech-drake .tooltip.mech:hover::after,.mech-drake .tooltip.mech:focus::after,.mech-drake .tooltip.mech:active::after{transform:translateX(-50%) translateY(26px);filter:drop-shadow(0 6px 18px rgba(255,80,30,.2))}
+
+    /* Drake theme */
+    .mech-drake .tooltip.drake::after{background:linear-gradient(90deg,#0b1416,#14302a);color:#cfeee8;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.02);box-shadow:0 8px 26px rgba(0,0,0,.35)}
+    .mech-drake .tooltip.drake::before{content:'';position:absolute;left:50%;transform:translateX(-50%);top:6px;width:40px;height:10px;background:repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 4px,transparent 4px 8px);opacity:0;transition:all .28s}
+    .mech-drake .tooltip.drake:hover::before,.mech-drake .tooltip.drake:focus::before,.mech-drake .tooltip.drake:active::before{transform:translateX(-50%) translateY(6px);opacity:1}
+    .mech-drake .tooltip.drake:hover::after,.mech-drake .tooltip.drake:focus::after,.mech-drake .tooltip.drake:active::after{transform:translateX(-50%) translateY(26px)}
+
+    /* Orb theme */
+    .mech-drake .tooltip.orb::after{background:linear-gradient(90deg,#042b37,#063a3f);color:#c8ffff;padding:10px 14px;border-radius:8px;border:1px solid rgba(122,252,255,.06);box-shadow:0 6px 20px rgba(10,160,180,.08)}
+    .mech-drake .tooltip.orb::before{content:'';position:absolute;left:50%;top:-6px;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:radial-gradient(circle,#7afcff 0%,#03aab0 50%,transparent 70%);opacity:0;transition:all .22s}
+    .mech-drake .tooltip.orb:hover::before,.mech-drake .tooltip.orb:focus::before,.mech-drake .tooltip.orb:active::before{top:-18px;opacity:1}
+    .mech-drake .tooltip.orb:hover::after,.mech-drake .tooltip.orb:focus::after,.mech-drake .tooltip.orb:active::after{transform:translateX(-50%) translateY(24px);box-shadow:0 10px 32px rgba(42,220,250,.08)}
+
+    /* Forge theme */
+    .mech-drake .tooltip.forge::after{background:linear-gradient(90deg,#30120a,#ff8b4a);color:#120500;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,130,60,.12);box-shadow:0 10px 30px rgba(255,90,30,.12)}
+    .mech-drake .tooltip.forge::before{content:'';position:absolute;left:50%;top:-10px;transform:translateX(-50%);width:18px;height:8px;background:radial-gradient(circle,#ffbc93 0%,#ff8b4a 50%,transparent 70%);border-radius:50%;opacity:0;transition:all .22s}
+    .mech-drake .tooltip.forge:hover::before,.mech-drake .tooltip.forge:focus::before,.mech-drake .tooltip.forge:active::before{top:-24px;opacity:1}
+    .mech-drake .tooltip.forge:hover::after,.mech-drake .tooltip.forge:focus::after,.mech-drake .tooltip.forge:active::after{transform:translateX(-50%) translateY(28px)}
+
+    /* Sensor theme */
+    .mech-drake .tooltip.sensor::after{background:linear-gradient(90deg,#042b37,#063a3f);color:#c8ffff;padding:10px 14px;border-radius:8px;border:1px solid rgba(122,252,255,.06);box-shadow:0 6px 20px rgba(10,160,180,.08)}
+    .mech-drake .tooltip.sensor::before{content:'';position:absolute;left:50%;top:-6px;transform:translateX(-50%);width:22px;height:6px;background:linear-gradient(90deg,rgba(255,255,255,.06),transparent);opacity:0;transition:all .2s}
+    .mech-drake .tooltip.sensor:hover::before,.mech-drake .tooltip.sensor:focus::before,.mech-drake .tooltip.sensor:active::before{top:-18px;opacity:1}
+
+    /* Wing theme */
+    .mech-drake .tooltip.wing::after{background:linear-gradient(90deg,#0b1620,#1a2630);color:#dbeeff;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.02);box-shadow:0 8px 26px rgba(0,0,0,.5)}
+    .mech-drake .tooltip.wing::before{content:'';position:absolute;left:50%;top:-8px;transform:translateX(-50%);width:36px;height:6px;background:linear-gradient(90deg,rgba(255,255,255,.02) 0 20%,transparent 20%);opacity:0;transition:.22s}
+    .mech-drake .tooltip.wing:hover::before,.mech-drake .tooltip.wing:focus::before,.mech-drake .tooltip.wing:active::before{top:-22px;opacity:1}
+    .mech-drake .tooltip.wing:hover::after,.mech-drake .tooltip.wing:focus::after,.mech-drake .tooltip.wing:active::after{transform:translateX(-50%) translateY(22px)}
+
+  </style>
+
+  <div class="md-title" role="heading" aria-level="3">Mech-Drake Tooltips</div>
+  <section class="row" aria-label="Mech-Drake tooltip demo">
+    <button class="btn tooltip mech" data-tip="Cyber Ember" tabindex="0">Engine</button>
+    <button class="btn tooltip drake" data-tip="Scale Guard" tabindex="0">Scale</button>
+    <button class="btn tooltip orb" data-tip="Magnetic Orb" tabindex="0">Core</button>
+    <button class="btn tooltip forge" data-tip="Forge Breath" tabindex="0">Forge</button>
+    <button class="btn tooltip sensor" data-tip="Aerial Sensor" tabindex="0">Sensor</button>
+    <button class="btn tooltip wing" data-tip="Wing Stabilizer" tabindex="0">Wing</button>
+  </section>
+</div>

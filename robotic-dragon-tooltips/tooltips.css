@@ -1,0 +1,50 @@
+:root{--bg:#071128;--muted:#9fb0c8;--accent:#ff6b35;--accent2:#7afcff}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;background:linear-gradient(180deg,#020617 0%,var(--bg) 60%);color:var(--muted);display:flex;align-items:center;justify-content:center}
+.demo{max-width:900px;padding:40px;text-align:center}
+.row{display:flex;gap:18px;justify-content:center;margin-top:28px}
+.btn{background:#071833;border:1px solid rgba(255,255,255,.04);padding:12px 18px;border-radius:10px;color:var(--muted);cursor:pointer}
+
+/* Base tooltip behavior — copy-paste the HTML (.tooltip data-tip) and CSS below into uiverse */
+.tooltip{position:relative}
+.tooltip::after{content:attr(data-tip);position:absolute;left:50%;transform:translateX(-50%) translateY(8px);white-space:nowrap;padding:8px 12px;border-radius:8px;font-size:13px;background:#0b1220;color:#dff;opacity:0;pointer-events:none;transition:all .22s cubic-bezier(.2,.9,.2,1)}
+.tooltip:hover::after,.tooltip:focus::after,.tooltip:active::after{opacity:1;transform:translateX(-50%) translateY(18px)}
+
+/* 1. Mech Ember — glitch + orange ember */
+.tooltip.mech::after{background:linear-gradient(90deg,#2b0a00,#ff6b35);color:#120500;box-shadow:0 6px 18px rgba(255,100,50,.08),0 0 30px rgba(255,80,30,.12);border-radius:6px;padding:10px 14px}
+.tooltip.mech::before{content:'';position:absolute;left:50%;top:-8px;transform:translateX(-50%);width:10px;height:10px;background:radial-gradient(circle,#ff9a6b 0%,#ff6b35 50%,transparent 60%);border-radius:50%;opacity:0;transition:all .22s}
+.tooltip.mech:hover::before{top:-18px;opacity:1}
+.tooltip.mech:hover::before,.tooltip.mech:focus::before,.tooltip.mech:active::before{top:-18px;opacity:1}
+.tooltip.mech:hover::after,.tooltip.mech:focus::after,.tooltip.mech:active::after{transform:translateX(-50%) translateY(26px);filter:drop-shadow(0 6px 18px rgba(255,80,30,.2))}
+
+/* 2. Drake Scale — metallic + scale shimmer */
+.tooltip.drake::after{background:linear-gradient(90deg,#111827,#1f2937);color:#cfe6ff;border-radius:6px;padding:10px 14px;border:1px solid rgba(255,255,255,.03);box-shadow:0 8px 24px rgba(0,0,0,.6)}
+.tooltip.drake::before{content:'';position:absolute;left:50%;transform:translateX(-50%);top:6px;width:40px;height:10px;background:repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 4px,transparent 4px 8px);opacity:0;transition:all .28s}
+.tooltip.drake:hover::before,.tooltip.drake:focus::before,.tooltip.drake:active::before{transform:translateX(-50%) translateY(6px);opacity:1}
+
+/* 3. Magnetic Orb — cyan orb + ring animation */
+.tooltip.orb::after{background:linear-gradient(90deg,#02121a,#06343a);color:var(--accent2);padding:10px 14px;border-radius:10px;border:1px solid rgba(122,252,255,.08);box-shadow:0 6px 20px rgba(10,120,140,.12)}
+.tooltip.orb::before{content:'';position:absolute;left:50%;top:-6px;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:radial-gradient(circle,#7afcff 0%,#03aab0 50%,transparent 70%);opacity:0;transition:all .22s}
+.tooltip.orb:hover::before,.tooltip.orb:focus::before,.tooltip.orb:active::before{top:-18px;opacity:1}
+.tooltip.orb:hover::after,.tooltip.orb:focus::after,.tooltip.orb:active::after{transform:translateX(-50%) translateY(24px);box-shadow:0 10px 32px rgba(42,220,250,.08)}
+
+/* Forge — molten mouth, heated rim */
+.tooltip.forge::after{background:linear-gradient(90deg,#30120a,#ff8b4a);color:#120500;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,130,60,.12);box-shadow:0 10px 30px rgba(255,90,30,.12)}
+.tooltip.forge::before{content:'';position:absolute;left:50%;top:-10px;transform:translateX(-50%);width:18px;height:8px;background:radial-gradient(circle,#ffbc93 0%,#ff8b4a 50%,transparent 70%);border-radius:50%;opacity:0;transition:all .22s}
+.tooltip.forge:hover::before,.tooltip.forge:focus::before,.tooltip.forge:active::before{top:-24px;opacity:1}
+.tooltip.forge:hover::after,.tooltip.forge:focus::after,.tooltip.forge:active::after{transform:translateX(-50%) translateY(28px)}
+
+/* Sensor — clean glass panel with cyan glow */
+.tooltip.sensor::after{background:linear-gradient(90deg,#042b37,#063a3f);color:#c8ffff;padding:10px 14px;border-radius:8px;border:1px solid rgba(122,252,255,.06);box-shadow:0 6px 20px rgba(10,160,180,.08)}
+.tooltip.sensor::before{content:'';position:absolute;left:50%;top:-6px;transform:translateX(-50%);width:22px;height:6px;background:linear-gradient(90deg,rgba(255,255,255,.06),transparent);opacity:0;transition:all .2s}
+.tooltip.sensor:hover::before,.tooltip.sensor:focus::before,.tooltip.sensor:active::before{top:-18px;opacity:1}
+
+/* Wing — aerodynamic shimmer */
+.tooltip.wing::after{background:linear-gradient(90deg,#0b1620,#1a2630);color:#dbeeff;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.02);box-shadow:0 8px 26px rgba(0,0,0,.5)}
+.tooltip.wing::before{content:'';position:absolute;left:50%;top:-8px;transform:translateX(-50%);width:36px;height:6px;background:linear-gradient(90deg,rgba(255,255,255,.02) 0 20%,transparent 20%);opacity:0;transition:.22s}
+.tooltip.wing:hover::before,.tooltip.wing:focus::before,.tooltip.wing:active::before{top:-22px;opacity:1}
+.tooltip.wing:hover::after,.tooltip.wing:focus::after,.tooltip.wing:active::after{transform:translateX(-50%) translateY(22px)}
+
+/* small responsive tweak */
+@media (max-width:520px){.row{flex-direction:column}.btn{width:92%}}
